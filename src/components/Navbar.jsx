@@ -2,7 +2,7 @@ import owlbird from'../assets/owlbird.png';
 function Navbar(){
     return(
         <>
-        <div className="fixed top-0 right-0 w-full bg-blue-200 shawod-md">
+        <div className="fixed top-0 right-0 w-full bg-yellow-200 shawod-md">
                 <div className="flex justify-between px-15">
                     <p>081/06/11, 8:30 PM</p>
                     <p>98********</p>
