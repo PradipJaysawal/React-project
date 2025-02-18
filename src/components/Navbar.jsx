@@ -1,4 +1,4 @@
-import owlbird from'../assets/owlbird.png';
+import lion from'../assets/lion.png';
 function Navbar(){
     return(
         <>
@@ -11,12 +11,12 @@ function Navbar(){
 
          <div>
         <nav className="flex justify-between items-center px-15 py-2 bg-gray-100 mt-6">
-            <img src={owlbird} alt="logo" className="h-20"/>
+            <img src={lion} alt="logo" className="h-12"/>
             <ul className="flex justify-center space-x-4">
-                <li><a href="#" className="text-blue-500">Home</a></li>
-                <li><a href="#" className="text-blue-500">About</a></li>
-                <li><a href="#" className="text-blue-500">Service</a></li>
-                <li><a href="#" className="text-blue-500">Contact</a></li>
+                <li><a href="#" className="text-blue-500 font-bold">Home</a></li>
+                <li><a href="#" className="text-blue-500 font-bold">About</a></li>
+                <li><a href="#" className="text-blue-500 font-bold">Service</a></li>
+                <li><a href="#" className="text-blue-500 font-bold">Contact</a></li>
             </ul>
         </nav>
         </div> 
