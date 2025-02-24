@@ -1,51 +1,47 @@
 import React from "react";
-import ProductCart from "./ProductCart";
+import ServiceCard from "./ServiceCard";
 
-function ProducutContainer(){
-    const products = [
+function ServiceContainer(){
+    const Services = [
         {
             id: 1,
-            productname: "product 1",
+            title: "Service 1",
             description: "this is description",
-            price:100,
             image:'https://picsum.photos/200'
         },
 
         {
             id: 2,
-            productname: "product 2",
+            title: "Service 2",
             description: "This is about id:2",
-            price:200,
             image:'https://picsum.photos/300'
         },
 
         {
             id: 3,
-            productname: "product 3",
+            title: "Service 3",
             description: "This is about id:3",
-            price:300,
             image:'https://picsum.photos/400'
         },
 
         {
             id: 4,
-            productname: "product 4",
+            title: "Service 4",
             description: "This is about id:4",
-            price:400,
             image:'https://picsum.photos/600'
         },
     ]
     return(
         <div>
-                <h1 className="text-center font-bold text-2xl py-2">Our Products</h1>
+                <h1 className="text-center font-bold text-2xl">Our Services</h1>
             <div className="grid grid-cols-4 gap-4 px-20 py-6">
-                {products.map((product)=>(
+                {Services.map((service)=>(
                     // <ProductCart key={product.id} productname={product.productname} price={product.price} description={product.description} /> //single product
-                    <ProductCart key={product.id} product={product} /> 
+                    <ServiceCard key={service.id} service={service} /> 
                 ))}
             </div>
         </div>
     )
 }
 
-export default ProducutContainer
+export default ServiceContainer
