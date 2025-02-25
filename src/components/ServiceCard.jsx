@@ -13,4 +13,4 @@ function ServiceCard({service}){
         </>
         )
 }
-export default ServiceCard
+export default ServiceCard;
