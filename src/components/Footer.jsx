@@ -2,6 +2,7 @@ import React from "react";
 
 function Footer(){
     return(
+        <div>
         <div className="grid grid-cols-3 gap-4 bg-blue-600 text-white py-10 px-20">
             <div>
                 <h1 className="text-2xl font-bold">About Us</h1>
@@ -23,6 +24,11 @@ function Footer(){
                     <p>98*****</p>
                 </ul>
             </div>
+            </div>
+            <div className="bg-blue-800 text-white text-center p-4">
+                <p>&copy; Pradipwa ko Pasal</p>
+            </div>
+        
         </div>
     )
 }
