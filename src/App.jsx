@@ -1,3 +1,4 @@
+import About from './components/About'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import ProducutContainer from './components/productcontainer'
@@ -11,6 +12,7 @@ function App() {
       <Navbar/>
       <ProducutContainer />
       <ServiceContainer />
+      <About/>
       <Footer/>
     </>
   )
