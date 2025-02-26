@@ -20,7 +20,7 @@ function About() {
           </p>
           <a href="">
           <button className="mt-4 px-4 py-2 bg-blue-900 text-white font-bold rounded-lg hover:bg-black">
-            Click me
+            Know More
           </button>
           </a>
         </div>
