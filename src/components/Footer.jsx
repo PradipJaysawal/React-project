@@ -1,4 +1,5 @@
 import React from "react";
+import { RiPhoneFill } from "react-icons/ri";
 
 function Footer(){
     return(
@@ -19,9 +20,10 @@ function Footer(){
             <div>
                 <h1 className="text-2xl font-bold">Contact Us</h1>
                 <ul>
-                    <p>98*****</p>
-                    <p>98*****</p>
-                    <p>98*****</p>
+                    <div className="flex items-center space-x-2">
+                        <RiPhoneFill/>
+                        <p>9829434998</p>
+                    </div>
                 </ul>
             </div>
             </div>
