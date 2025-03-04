@@ -1,6 +1,6 @@
 import React from "react";
 
-function About() {
+function AboutContent() {
   return (
     <>
       <h1 className="text-center font-bold text-2xl">About Us</h1>
@@ -26,4 +26,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutContent;

@@ -3,7 +3,7 @@ import { RiFacebookCircleFill, RiInstagramFill, RiPhoneFill, RiTimeFill, RiTwitt
 
 const TopBar = () => {
   return (
-     <div className="bg-blue-700 flex justify-between py-7 px-15">
+     <div className="bg-blue-700 flex justify-between py-2 px-15">
                 <div className="flex gap-3 ">
                     <RiInstagramFill size={20} className='text-white text-sm'/>
                     <RiFacebookCircleFill size={20} className='text-white text-sm'/>

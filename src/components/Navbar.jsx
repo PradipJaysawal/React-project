@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import lion from'../assets/lion.png';
 function Navbar(){
     return(
@@ -13,10 +14,18 @@ function Navbar(){
         <nav className="flex justify-between items-center px-15 py-2 bg-gray-100">
             <img src={lion} alt="logo" className="h-12"/>
             <ul className="flex justify-center space-x-4">
-                <li><a href="#" className="text-blue-500 font-bold">Home</a></li>
-                <li><a href="#" className="text-blue-500 font-bold">About</a></li>
-                <li><a href="#" className="text-blue-500 font-bold">Service</a></li>
-                <li><a href="#" className="text-blue-500 font-bold">Contact</a></li>
+                <li>
+                    <Link to="/" className="text-blue-500 font-bold">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about" className="text-blue-500 font-bold">About</Link>
+                </li>
+                <li>
+                    <Link to="/services" className="text-blue-500 font-bold">Services</Link>
+                </li>
+                <li>
+                    <Link to="/contact" className="text-blue-500 font-bold">Contact</Link>
+                </li>
             </ul>
         </nav>
         </div> 

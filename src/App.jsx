@@ -1,4 +1,4 @@
-import About from './components/About'
+import About from './components/AboutContent'
 import EventContainer from './components/EventContainer'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
