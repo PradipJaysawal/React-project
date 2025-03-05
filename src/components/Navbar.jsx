@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import lion from'../assets/lion.png';
 function Navbar(){
     return(
@@ -15,16 +15,16 @@ function Navbar(){
             <img src={lion} alt="logo" className="h-12"/>
             <ul className="flex justify-center space-x-4">
                 <li>
-                    <Link to="/" className="text-blue-500 font-bold">Home</Link>
+                    <NavLink to="/" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>Home</NavLink>
                 </li>
                 <li>
-                    <Link to="/about" className="text-blue-500 font-bold">About</Link>
+                    <NavLink to="/about" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>About</NavLink>
                 </li>
                 <li>
-                    <Link to="/services" className="text-blue-500 font-bold">Services</Link>
+                    <NavLink to="/services" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>Services</NavLink>
                 </li>
                 <li>
-                    <Link to="/contact" className="text-blue-500 font-bold">Contact</Link>
+                    <NavLink to="/contact" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>Contact</NavLink>
                 </li>
             </ul>
         </nav>
