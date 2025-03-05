@@ -15,16 +15,19 @@ function Navbar(){
             <img src={lion} alt="logo" className="h-12"/>
             <ul className="flex justify-center space-x-4">
                 <li>
-                    <NavLink to="/" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>Home</NavLink>
+                    <NavLink to="/" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/about" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>About</NavLink>
+                    <NavLink to="/about" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>About</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/services" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>Services</NavLink>
+                    <NavLink to="/services" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Services</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/contact" className={({isActive}) => isActive ? "text-red-500 font-bold " : " text-blue-500 "}>Contact</NavLink>
+                    <NavLink to="/contact" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Contact</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/login" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Login</NavLink>
                 </li>
             </ul>
         </nav>
