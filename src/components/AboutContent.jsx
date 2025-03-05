@@ -3,7 +3,7 @@ import React from "react";
 function AboutContent() {
   return (
     <>
-      <h1 className="text-center font-bold text-2xl">About Us</h1>
+      <h1 className="text-center font-bold text-2xl mt-2">About Us</h1>
       <div className="flex py-10 px-24 items-center gap-10">
         <div className="flex-none">
           <img 

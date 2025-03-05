@@ -8,7 +8,7 @@ const Contact = () => {
     <div>
         <TopBar/>
         <Navbar/>
-      <h1 className='text-center'>Contact</h1>
+        <h1 className="text-center font-bold text-2xl mt-2">Contact Us</h1>
         <Footer/>
     </div>
   )

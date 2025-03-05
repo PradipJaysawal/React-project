@@ -33,7 +33,7 @@ function ServiceContainer(){
     ]
     return(
         <div>
-                <h1 className="text-center font-bold text-2xl">Our Services</h1>
+                <h1 className="text-center font-bold text-2xl mt-2">Our Services</h1>
             <div className="grid grid-cols-4 gap-4 px-20 py-6">
                 {Services.map((service)=>(
                     // <ProductCart key={product.id} productname={product.productname} price={product.price} description={product.description} /> //single product
