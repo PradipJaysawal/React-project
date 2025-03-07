@@ -1,10 +1,21 @@
-import React from 'react'
-import TopBar from './components/TopBar'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import React, { useState } from 'react'
+import TopBar from '../components/TopBar'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { Ri24HoursFill, RiBankCard2Fill, RiShoppingCart2Fill, RiStarFill, RiTruckFill, RiVerifiedBadgeFill } from 'react-icons/ri'
 
 function SingleProduct() {
+
+    const [Qty, setQty] = useState(1)
+    const increment = () => {
+        setQty(Qty + 1)
+    }
+    const decrement = () => {
+        if (Qty > 1) {
+            setQty(Qty - 1)
+        }
+    }
+    
   return (
     <div>
         <TopBar />
@@ -28,9 +39,10 @@ function SingleProduct() {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nihil reprehenderit corporis obcaecati similique debitis? Quis, vel. A asperiores quam, porro tempore consequuntur dicta minus impedit maxime corrupti ea non!
                 </p>
                 <div className='flex items-center py-2'>
-                    <button className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>-</button>
-                    <p className='px-4'>1</p>
-                    <button className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>+</button>
+                    <button onClick={decrement} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>-</button>
+                    <p className='px-4'>{Qty}</p>
+                    <button onClick={increment} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>+</button>
+                    
                 </div>
                 <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2'><RiShoppingCart2Fill/> Add to Cart</button>
             </div>
