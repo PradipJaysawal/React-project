@@ -8,7 +8,7 @@ function Register() {
     <>
     <TopBar />
     <Navbar />
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen">
       <form className="bg-gray-200 shadow-lg rounded-2xl p-8 w-96">
         <h1 className="text-center text-3xl font-extrabold text-gray-800 mb-6">Register</h1>
 
@@ -63,7 +63,7 @@ function Register() {
         <div className="mt-4 text-center">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-500 font-semibold hover:text-orange-600">
+            <a href="/login" className="text-blue-500 font-semibold hover:text-orange-600 hover:underline">
               Login Now
             </a>
           </p>

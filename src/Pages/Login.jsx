@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
+import { RiEyeLine, RiEyeOffFill } from 'react-icons/ri';
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () =>{ setShowPassword(!showPassword);
+  }
+
   return (
     <div>
       <TopBar />
@@ -15,8 +20,14 @@ const Login = () => {
             <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Email' required />
           </div>
 
-          <div className="mb-6">
-            <input type="password" id="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Password' required/>
+          <div className="mb-6 relative">
+            <input type={showPassword ? "text" : "password"} id="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Password' required/>
+            <div onClick={handleShowPassword}> 
+              {showPassword ?
+              <RiEyeOffFill className='absolute top-3 right-3 text-gray-500 cursor-pointer' /> :
+              <RiEyeLine className='absolute top-3 right-3 text-gray-500 cursor-pointer' />
+            }
+            </div>
           </div>
 
           <div className="flex items-center justify-between mb-4">
@@ -26,7 +37,7 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-between mb-4">
             <p>Don't have an account?
-            <a href="/register" className="text-blue-500 font-semibold hover:text-orange-600"> Register Now</a>
+            <a href="/register" className="text-blue-500 font-semibold hover:text-orange-600 hover:underline"> Register Now</a>
             </p>
           </div>
         </form>
@@ -34,6 +45,6 @@ const Login = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Login;

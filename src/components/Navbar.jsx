@@ -4,8 +4,8 @@ function Navbar(){
     return(
         <>
 
-         <div>
-        <nav className="flex justify-between items-center px-15 py-2 bg-gray-100">
+         <div className='sticky top-0 z-50'>
+        <nav className="flex justify-between items-center px-15 py-2 bg-gray-100 shadow-lg">
             <img src={lion} alt="logo" className="h-12"/>
             <ul className="flex justify-center space-x-4">
                 <li>
