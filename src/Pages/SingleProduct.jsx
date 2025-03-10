@@ -3,8 +3,14 @@ import TopBar from '../components/TopBar'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Ri24HoursFill, RiBankCard2Fill, RiShoppingCart2Fill, RiStarFill, RiTruckFill, RiVerifiedBadgeFill } from 'react-icons/ri'
+import { useLocation } from 'react-router-dom'
 
 function SingleProduct() {
+
+    const {state} = useLocation();
+    //access the product object from the state
+    const product = state.product;
+    
 
     const [Qty, setQty] = useState(1)
     const increment = () => {
@@ -22,10 +28,10 @@ function SingleProduct() {
         <Navbar />
         <div className='grid grid-cols-4 gap-4 md:px-32 px-20 py-10'>
             <div>
-                <img src='https://picsum.photos/500' alt='product' />
+                <img src={product.image} alt='product' />
             </div>
             <div className='col-span-2'>
-                <h1 className='text-2xl font-bold'>Outdoor Jacket For Men</h1>
+                <h1 className='text-2xl font-bold'>{product.productname}</h1>
                 <div className='flex items-center py-2'>
                     <RiStarFill className='text-yellow-500' />
                     <RiStarFill className='text-yellow-500' />
@@ -34,9 +40,9 @@ function SingleProduct() {
                     <RiStarFill className='text-yellow-500' />
                     <p>(200)</p>
                 </div>
-                <p className='text-lg font-bold'>$100</p>
+                <p className='text-lg font-bold'>${product.price}</p>
                 <p className='text-sm text-gray-600'>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium nihil reprehenderit corporis obcaecati similique debitis? Quis, vel. A asperiores quam, porro tempore consequuntur dicta minus impedit maxime corrupti ea non!
+                    {product.description}
                 </p>
                 <div className='flex items-center py-2'>
                     <button onClick={decrement} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>-</button>
