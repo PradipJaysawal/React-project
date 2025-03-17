@@ -1,42 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCart from "./ProductCart";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ProducutContainer(){
     const navigation = useNavigate();
-    const products = [
-        {
-            id: 1,
-            productname: "product 1",
-            description: "this is description",
-            price:100,
-            image:'https://picsum.photos/200'
-        },
+    const [products, setProducts] = useState([]);
 
-        {
-            id: 2,
-            productname: "product 2",
-            description: "This is about id:2",
-            price:200,
-            image:'https://picsum.photos/300'
-        },
+    useEffect(()=>{
+        axios.get('https://fakestoreapi.com/products')
+        .then((response)=>{
+            setProducts(response.data);
+        })
 
-        {
-            id: 3,
-            productname: "product 3",
-            description: "This is about id:3",
-            price:300,
-            image:'https://picsum.photos/400'
-        },
+    },[]);
 
-        {
-            id: 4,
-            productname: "product 4",
-            description: "This is about id:4",
-            price:400,
-            image:'https://picsum.photos/600'
-        },
-    ]
 
     const handleClick = (product)=>{
         navigation(`/product/${product.id}`,{state:{product}});
