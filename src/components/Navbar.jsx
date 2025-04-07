@@ -1,6 +1,20 @@
 import { Link, NavLink } from 'react-router-dom';
 import lion from'../assets/lion.png';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 function Navbar(){ 
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(()=>{
+        axios.get('http://127.0.0.1:8000/api/categories')
+        .then((response)=>{
+            setCategories(response.data);
+        })
+},[]);
+
+console.log(categories);
+
     return(
         <>
 
@@ -14,9 +28,11 @@ function Navbar(){
                 <li>
                     <NavLink to="/about" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>About</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/services" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Services</NavLink>
-                </li>
+                {categories.map((category)=>(
+                    <li key={category.id} className='text-blue-500'>
+                        {category.name}
+                    </li>
+                ))}
                 <li>
                     <NavLink to="/contact" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Contact</NavLink>
                 </li>
