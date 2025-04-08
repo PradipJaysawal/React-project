@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import ProductCart from "./ProductCart";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../constants/apiConstant";
 
 function ProducutContainer(){
     const navigation = useNavigate();
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/latestproduct')
+        axios.get(`${API_URL}/latestproduct`)
         .then((response)=>{
             setProducts(response.data);
         })

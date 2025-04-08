@@ -25,12 +25,9 @@ console.log(categories);
                 <li>
                     <NavLink to="/" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Home</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/about" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>About</NavLink>
-                </li>
                 {categories.map((category)=>(
                     <li key={category.id} className='text-blue-500'>
-                        {category.name}
+                        <NavLink to={`/categoryproducts/${category.id}`} className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : "text-blue-500"}>{category.name}</NavLink>
                     </li>
                 ))}
                 <li>

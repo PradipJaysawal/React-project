@@ -9,6 +9,7 @@ import Contact from './Pages/Contact.jsx'
 import SingleProduct from './Pages/SingleProduct.jsx'
 import Login from './Pages/Login.jsx'
 import Register from './Pages/Register.jsx'
+import CategoryProducts from './Pages/CategoryProducts.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/product/:id' element={<SingleProduct/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register/>} />
+        <Route path='/categoryproducts/:id' element={<CategoryProducts/>} />
       </Routes>
     </Router>
   </StrictMode>,
