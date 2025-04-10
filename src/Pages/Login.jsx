@@ -3,11 +3,42 @@ import Navbar from '../components/Navbar';
 import TopBar from '../components/TopBar';
 import Footer from '../components/Footer';
 import { RiEyeLine, RiEyeOffFill } from 'react-icons/ri';
+import axios from 'axios';
+import { API_URL } from '../constants/apiConstant';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const handleShowPassword = () =>{ setShowPassword(!showPassword);
-  }
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleEmailChange = (e) => {
+      setEmail(e.target.value);
+    }
+    const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
+    }
+    const handleSubmit = async (e) => { 
+      e.preventDefault();
+      //login logic here
+      const res = await axios.post(`${API_URL}/login`, { 
+        email: email,
+        password: password,
+      })
+      if (res.status === 200){
+        //handle successful login here
+        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('user', JSON.stringify(res.data.user))
+        location.href = '/'
+      }else {
+        //handle error here
+        console.log('login failed')
+      }
+    }
+
+    const handleShowPassword = () => {
+      setShowPassword(!showPassword);
+    }
+  
 
   return (
     <div>
@@ -15,13 +46,13 @@ const Login = () => {
       <Navbar />
       <div className="flex flex-col items-center justify-center w-1/3 mx-auto mt-4 mb-4 bg-gray-200 px-8 py-8 rounded-lg shadow-lg">
       <h1 className="text-center font-bold text-2xl mb-4 mt-4">Login</h1>
-        <form className="w-full max-w-sm">
+        <form className="w-full max-w-sm" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Email' required />
+            <input type="email" value={email} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Email' required onChange={handleEmailChange} />
           </div>
 
           <div className="mb-6 relative">
-            <input type={showPassword ? "text" : "password"} id="password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Password' required/>
+            <input type={showPassword ? "text" : "password"} value={password} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Password' required onChange={handlePasswordChange}/>
             <div onClick={handleShowPassword}> 
               {showPassword ?
               <RiEyeOffFill className='absolute top-3 right-3 text-gray-500 cursor-pointer' /> :
