@@ -13,7 +13,11 @@ function Navbar(){
         })
 },[]);
 
-console.log(categories);
+const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    location.href = '/';
+}
 
     return(
         <>
@@ -34,7 +38,11 @@ console.log(categories);
                     <NavLink to="/contact" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Contact</NavLink>
                 </li>
                 <li>
+                    {localStorage.getItem('token') === null ? (
                     <NavLink to="/login" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Login</NavLink>
+                ):(
+                    <a className="text-blue-500 cursor-pointer" onClick={handleLogout}>Logout</a>
+                )}
                 </li>
             </ul>
         </nav>
