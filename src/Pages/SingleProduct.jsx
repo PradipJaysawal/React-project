@@ -31,6 +31,26 @@ function SingleProduct() {
         })
     }, []);
 
+    const handleAddToCart = () => {
+        const token = localStorage.getItem('token')
+        if(!token) {
+            alert('Please login to add products to cart')
+            return
+        }
+        axios.post(`${API_URL}/cart/store`, {
+            product_id: product.id,
+            qty: Qty
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+                alert(response.data.message)
+        })
+    }
+
+
 
     
   return (
@@ -61,7 +81,8 @@ function SingleProduct() {
                     <button onClick={increment} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>+</button>
                     
                 </div>
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2'><RiShoppingCart2Fill/> Add to Cart</button>
+                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2 cursor-pointer'onClick={handleAddToCart}><RiShoppingCart2Fill/> Add to Cart</button>
+                
             </div>
             <div className='border-l border-gray-200 pl-2 text-gray-700'>
                 <p className='flex items-center gap-2'><RiTruckFill /> Free Delivery </p>

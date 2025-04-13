@@ -10,6 +10,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    //success message
+    const [success, setSuccess] = useState('');
 
     const handleEmailChange = (e) => {
       setEmail(e.target.value);
@@ -26,9 +28,14 @@ const Login = () => {
       })
       if (res.status === 200){
         //handle successful login here
-        localStorage.setItem('token', res.data.token)
+        setSuccess('Login successful! Redirecting...')
+        setTimeout(() => {
+          localStorage.setItem('token', res.data.token)
         localStorage.setItem('user', JSON.stringify(res.data.user))
         location.href = '/'
+        }
+        , 1000)
+
       }else {
         //handle error here
         console.log('login failed')
@@ -39,6 +46,11 @@ const Login = () => {
       setShowPassword(!showPassword);
     }
   
+    //redirect to home page if user is already logged in
+    const logintoken = localStorage.getItem('token')
+    if(logintoken) {
+      location.href = '/'
+    }
 
   return (
     <div>
@@ -46,6 +58,7 @@ const Login = () => {
       <Navbar />
       <div className="flex flex-col items-center justify-center w-1/3 mx-auto mt-4 mb-4 bg-gray-200 px-8 py-8 rounded-lg shadow-lg">
       <h1 className="text-center font-bold text-2xl mb-4 mt-4">Login</h1>
+      <p className='text-green-600 text-sm mb-5'>{success}</p>
         <form className="w-full max-w-sm" onSubmit={handleSubmit}>
           <div className="mb-4">
             <input type="email" value={email} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder='Email' required onChange={handleEmailChange} />

@@ -41,7 +41,10 @@ const handleLogout = () => {
                     {localStorage.getItem('token') === null ? (
                     <NavLink to="/login" className={({isActive}) => isActive ? "text-blue-600 font-bold underline" : " text-blue-500 "}>Login</NavLink>
                 ):(
-                    <a className="text-blue-500 cursor-pointer" onClick={handleLogout}>Logout</a>
+                    <div className='flex items-center gap-2'>
+                            <a className="text-blue-500 cursor-pointer" onClick={handleLogout}>Logout</a>
+                            <NavLink to="/mycart" className={({isActive}) => isActive ? "text-red-500 font-bold" : "text-blue-500"}>My Cart</NavLink>
+                    </div>
                 )}
                 </li>
             </ul>
