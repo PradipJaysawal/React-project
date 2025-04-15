@@ -11,9 +11,11 @@ import Login from './Pages/Login.jsx'
 import Register from './Pages/Register.jsx'
 import CategoryProducts from './Pages/CategoryProducts.jsx'
 import MyCart from './Pages/MyCart.jsx'
+import { ToastContainer } from 'react-toastify'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <ToastContainer/>
     <Router>
       <Routes>
         <Route path='/' element={<App />} />
