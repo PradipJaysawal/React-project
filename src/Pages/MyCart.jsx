@@ -4,6 +4,7 @@ import axios from 'axios'
  import Navbar from '../components/Navbar'
  import Footer from '../components/Footer'
 import TopBar from '../components/TopBar'
+import { toast } from 'react-toastify'
 const MyCart = () => {
     const token = localStorage.getItem('token')
     const [carts, setCarts] = useState([])
@@ -20,19 +21,19 @@ const MyCart = () => {
         )
         .then((response) => {
             setCarts(response.data.carts);
-            console.log(response.data.carts);
+
         })
     }
     , []);
     
-    const handleRemoveCart = (cartId) => () => {
+    const handleRemoveCart = (cartId) => {
       axios.get(`${API_URL}/cart/destroy/${cartId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         } 
       })
       .then((response) => {
-        alert('Cart removed successfully')
+        toast.success('Cart removed successfully')
         setCarts(carts.filter((cart) => cart.id !== cartId))
       })
       .catch((error) => {
@@ -56,10 +57,10 @@ const MyCart = () => {
             <p className='text-sm'>Total: {cart.product.price * cart.qty}</p>
             <div className='flex flex-col items-end'>
                 <div>
-                <button className='bg-red-500 text-white px-4 py-2 rounded mt-2 cusror-pointer' onClick={handleRemoveCart(cart.id)}>Remove</button>
+                <button className='bg-red-500 text-white px-4 py-2 rounded mt-2 cursor-pointer' onClick={()=>handleRemoveCart(cart.id)}>Remove</button>
                 </div>
                 <div>
-                <button className='bg-green-500 text-white px-4 py-2 rounded mt-2'>Checkout</button>
+                <button className='bg-green-500 text-white px-4 py-2 rounded mt-2 cursor-pointer'>Checkout</button>
                 </div>
             </div>
             </div>

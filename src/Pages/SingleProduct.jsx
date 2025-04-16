@@ -82,9 +82,9 @@ function SingleProduct() {
                     {product.description}
                 </p>
                 <div className='flex items-center py-2'>
-                    <button onClick={decrement} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>-</button>
+                    <button onClick={decrement} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded cursor-pointer'>-</button>
                     <p className='px-4'>{Qty}</p>
-                    <button onClick={increment} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded'>+</button>
+                    <button onClick={increment} className='bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded cursor-pointer'>+</button>
                     
                 </div>
                 <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2 cursor-pointer'onClick={handleAddToCart}><RiShoppingCart2Fill/> Add to Cart</button>
