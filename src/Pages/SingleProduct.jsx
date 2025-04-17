@@ -3,16 +3,19 @@ import TopBar from '../components/TopBar'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { Ri24HoursFill, RiBankCard2Fill, RiShoppingCart2Fill, RiStarFill, RiTruckFill, RiVerifiedBadgeFill } from 'react-icons/ri'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { API_URL, API_URL_PRODUCT } from '../constants/apiConstant'
 import { toast } from 'react-toastify'
+import ProductCart from '../components/ProductCart'
 
 function SingleProduct() {
 
     const {id} = useParams();
     //access the product object from the state
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState([])
+    const [relatedProducts, setRelatedProducts] = useState([])
+    const navigation = useNavigate()
     
 
     const [Qty, setQty] = useState(1)
@@ -28,9 +31,10 @@ function SingleProduct() {
     useEffect(() => {
         axios.get(`${API_URL}/viewproduct/${id}`)
         .then((response) => {
-            setProduct(response.data)
+            setProduct(response.data.product)
+            setRelatedProducts(response.data.relatedproducts)
         })
-    }, []);
+    }, [id]);
 
     const handleAddToCart = () => {
         const token = localStorage.getItem('token')
@@ -56,6 +60,10 @@ function SingleProduct() {
         })
     }
 
+
+    const handleClick = (id)=>{
+        navigation(`/product/${id}`);
+    }
 
 
     
@@ -95,6 +103,16 @@ function SingleProduct() {
                 <p className='flex items-center gap-2'><Ri24HoursFill /> 24/7 Support </p>
                 <p className='flex items-center gap-2'><RiVerifiedBadgeFill /> 100% Original </p>
                 <p className='flex items-center gap-2'><RiBankCard2Fill /> Secure Payments </p>
+            </div>
+        </div>
+        
+        
+        <div>
+                <h1 className="font-bold text-2xl mt-2 mx-20">Related Products</h1>
+                <div className="grid grid-cols-4 gap-4 px-20 py-6">
+                {relatedProducts.map((product)=>(
+                    <ProductCart key={product.id} product={product} onClick={()=> handleClick(product.id)} /> 
+                ))}
             </div>
         </div>
         <Footer />
