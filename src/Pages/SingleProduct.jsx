@@ -8,6 +8,7 @@ import axios from 'axios'
 import { API_URL, API_URL_PRODUCT } from '../constants/apiConstant'
 import { toast } from 'react-toastify'
 import ProductCart from '../components/ProductCart'
+import Chart from '../components/Chart'
 
 function SingleProduct() {
 
@@ -115,6 +116,7 @@ function SingleProduct() {
                 ))}
             </div>
         </div>
+        <Chart />
         <Footer />
     </div>
   )
