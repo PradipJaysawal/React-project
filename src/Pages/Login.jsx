@@ -75,15 +75,17 @@ const Login = () => {
           </div>
 
           <div className="flex items-center justify-between mb-4">
-            <button type="submit" className="w-full bg-blue-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
+            <button type="submit" className="w-full bg-blue-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" >
               Login
             </button>
           </div>
+
           <div className="flex items-center justify-between mb-4">
             <p>Don't have an account?
             <a href="/register" className="text-blue-500 font-semibold hover:text-orange-600 hover:underline"> Register Now</a>
             </p>
           </div>
+          
         </form>
       </div>
       <Footer />

@@ -56,7 +56,7 @@ function Register() {
 
         <button
           type="submit"
-          className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-orange-600 transition duration-300">
+          className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-orange-600 transition duration-300 cursor-pointer">
           Register
         </button>
 
